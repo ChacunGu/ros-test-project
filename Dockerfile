@@ -60,6 +60,9 @@ ENV PIP_INDEX_URL=${PIP_INDEX_URL}
 COPY ./dependencies-py3.* "${REPO_PATH}/"
 RUN dt-pip3-install "${REPO_PATH}/dependencies-py3.*"
 
+# Install PyTorch and torchvision
+RUN pip install torch torchvision
+
 # copy the source code
 COPY ./packages "${REPO_PATH}/packages"
 
