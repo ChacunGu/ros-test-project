@@ -61,7 +61,13 @@ COPY ./dependencies-py3.* "${REPO_PATH}/"
 RUN dt-pip3-install "${REPO_PATH}/dependencies-py3.*"
 
 # Install PyTorch and torchvision
+RUN apt-get update
 RUN pip install torch torchvision
+# RUN apt-get install python3-tk
+
+#ENV LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+
+
 
 # copy the source code
 COPY ./packages "${REPO_PATH}/packages"
